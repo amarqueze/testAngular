@@ -1,0 +1,28 @@
+<input type="text" [(ngModel)]="title">
+
+<div>
+  <h1> Type: </h1>
+  <p *ngIf="title === 'fumoffu'"> webApp </p>
+</div>
+
+<button (click)="addProduct()"> add Product </button>
+<ul>
+  <li *ngFor="let product of products; index as i">
+      {{i+1}} : {{ product + ' Desc' }}  <button (click)="deleteItem(i)" [disabled]="product.startsWith('f')"> Delete </button>
+  </li>
+</ul>
+
+<fieldset *ngFor="let product of productItems" style="width:300px;">
+  <legend>{{ product.title }} </legend>
+  <div>
+    <img [src]="product.image" [alt]="product.description">
+    <h3> Price: {{ product.price }}</h3>
+    <p> {{ product.description }} </p>
+  </div>
+</fieldset>
+
+<swiper [slidesPerView]="3" [spaceBetween]="50">
+  <ng-template swiperSlide>Slide 1</ng-template>
+  <ng-template swiperSlide>Slide 2</ng-template>
+  <ng-template swiperSlide>Slide 3</ng-template>
+</swiper>
