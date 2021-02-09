@@ -1,0 +1,104 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Default Theme
+$app-primary: (
+  50 : #ffefee,
+  100 : #ffd6d6,
+  200 : #ffbbba,
+  300 : #ff9f9e,
+  400 : #ff8b8a,
+  500 : #ff7675,
+  600 : #ff6e6d,
+  700 : #ff6362,
+  800 : #ff5958,
+  900 : #ff4645,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffecec,
+  A700 : #ffd3d3,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$app-secondary: (
+    50 : #eee7e7,
+    100 : #d5c2c2,
+    200 : #b99a9a,
+    300 : #9d7272,
+    400 : #885353,
+    500 : #733535,
+    600 : #6b3030,
+    700 : #602828,
+    800 : #562222,
+    900 : #431616,
+    A100 : #ff8181,
+    A200 : #ff4e4e,
+    A400 : #ff1b1b,
+    A700 : #ff0202,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+$app-primary: mat-palette($app-primary);
+$app-accent: mat-palette($app-secondary);
+$app-warn: mat-palette($mat-red);
+
+$app-theme: mat-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  )
+));
+
+@include angular-material-theme($app-theme);
+
+// Dark-Theme
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  )
+));
+
+.unicorn-dark-theme {
+  @include angular-material-color($dark-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
